@@ -52,54 +52,17 @@ function makeElement(type, textOrPropsOrChild, ...otherChildren) {
 const div = (...args) => makeElement(`div`, ...args);
 const h1 = (...args) => makeElement(`h1`, ...args);
 const p = (...args) => makeElement(`p`, ...args);
-const ul = (...args) => makeElement(`ul`, ...args);
-const li = (...args) => makeElement(`li`, ...args);
 const a = (...args) => makeElement(`a`, ...args);
-
-const returnedItem = document.getElementsByClassName("itemName");
-
-const newArr = [];
-
-const returnedItemArr = Array.from(returnedItem);
-
-const rer = returnedItemArr.forEach((item) => {
-  const innerStuff = item.innerHTML;
-  const returnedFileName = innerStuff.split(";")[0];
-  const returnedFileLink = innerStuff.split(";")[1];
-  newArr.push({ name: returnedFileName, link: returnedFileLink });
-});
-
 Component = () => {
   return div(
     { id: "root" },
     div(
       { className: "container" },
-      h1({ className: `headerTitle` }, "My Files"),
-      p(
-        { className: "headerSubtitle" },
-        "Click on the filename to download it"
-      ),
       div(
-        { className: "ulContainer" },
-        ul(
-          { id: "fileListUl", className: "fileListUl" },
-          newArr.map((content) =>
-            li(
-              {
-                id: Math.random().toString(36).substring(7),
-                className: "fileListLi",
-              },
-              a(
-                {
-                  id: Math.random().toString(36).substring(7),
-                  className: "fileAnchorLink",
-                  href: `/download/${content.link}`,
-                },
-                content.name
-              )
-            )
-          )
-        )
+        { className: "home-hero" },
+        h1({ id: "homeAnonTitle" }, "HTML to PDF"),
+        p({ id: "homeAnonSubtitle" }, "Signup to use!"),
+        a({ href: "/signup", className: "btn btn-primary" }, "Sign up")
       )
     )
   );

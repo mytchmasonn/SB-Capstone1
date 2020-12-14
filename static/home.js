@@ -52,9 +52,6 @@ function makeElement(type, textOrPropsOrChild, ...otherChildren) {
 const div = (...args) => makeElement(`div`, ...args);
 const h1 = (...args) => makeElement(`h1`, ...args);
 const p = (...args) => makeElement(`p`, ...args);
-const ul = (...args) => makeElement(`ul`, ...args);
-const li = (...args) => makeElement(`li`, ...args);
-const a = (...args) => makeElement(`a`, ...args);
 const span = (...args) => makeElement(`span`, ...args);
 const input = (...args) => makeElement(`input`, ...args);
 const form = (...args) => makeElement(`form`, ...args);

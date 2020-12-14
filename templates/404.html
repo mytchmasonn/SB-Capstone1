@@ -1,12 +1,3 @@
-{% extends 'base.html' %}
-
-
-{% block content %}
-
-<div class="message-404">
-  <h4 class="display-4">Oops! The page you requested doesn't exist. {{ request.status }}</h4>
-  <p class="m-3">
-    <a href="/"><b>Return to the homepage</b></a>.</p>
-</div>
-
+{% extends 'base.html' %} {% block content %}
+<script src="../static/fourOhFour.js"></script>
 {% endblock %}

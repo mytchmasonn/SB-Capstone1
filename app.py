@@ -8,9 +8,6 @@ Enjoy reading through this mess  :)
 
 """
 
-
-
-
 import os
 import string
 import random
@@ -38,12 +35,12 @@ app.config['SQLALCHEMY_DATABASE_URI'] = (
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', "it's a secret")
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', "whateverbro")
 toolbar = DebugToolbarExtension(app)
 
 connect_db(app)
 
-engine = create_engine('postgres:///capstone')
+engine = create_engine(os.environ.get('DATABASE_URL', 'postgres:///capstone'))
 
 UPLOAD_FOLDER = "uploads"
 BUCKET = "htmltopdfcapstone"
@@ -199,7 +196,7 @@ def upload():
 def download(filename):
     if request.method == 'GET':
         output = download_file(filename, BUCKET)
-        return send_file(output, as_attachment=False)
+        return send_file(output, as_attachment=True)
 ##############################################################################
 # Homepage and error pages
 
